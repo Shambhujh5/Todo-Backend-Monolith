@@ -1,9 +1,10 @@
 trigger: none
-
-
 pool: default
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: SoftwareComponentAnalysis
+    displayName: Software Component Analysis
+    jobs:
+      - job: DependencyVulnerabilityScan
+        displayName: Dependency Vulnerability Scan
 
