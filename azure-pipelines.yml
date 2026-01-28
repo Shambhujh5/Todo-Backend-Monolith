@@ -41,6 +41,18 @@ stages:
         environment:
          name: Backend-deploy
          resourceType: virtualmachine
-         
+        strategy:
+         runOnce:
+           deploy:
+             steps:
+             - task: DownloadPipelineArtifact@2
+               inputs:
+                 buildType: 'current'
+                 artifactName: 'todoBackend_artifact'
+                 targetPath: '$(Pipeline.Workspace)'
+             - task: CmdLine@2
+               inputs:
+                 script: 'sudo cp -r $(Pipeline.Workspace)/app.py /home/samadmin'
+
     
       
