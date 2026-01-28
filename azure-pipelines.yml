@@ -11,6 +11,14 @@ stages:
         - task: PowerShell@2
           inputs:
             targetType: 'inline'
-            script: 'sonar-scanner.bat -D"sonar.projectKey=backend-todo" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=$(token)"'
-
-        
+            script: 'sonar-scanner.bat -D"sonar.projectKey=backend-todo"  -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=$(token)"'
+  - stage: CodeQualityChecks
+    displayName: Code Quality Checks & Linting
+    jobs:
+      - job: Lintingcheck
+        displayName: Linting check(ruff)
+        steps:
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: 'ruff check $(System.DefaultWorkingDirectory)'
