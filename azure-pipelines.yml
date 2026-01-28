@@ -31,6 +31,6 @@ stages:
         steps:
         - task: PublishPipelineArtifact@1
           inputs:
-            targetPath: '$(Pipeline.Workspace)/app.py'
+            targetPath: '$(System.DefaultWorkingDirectory)/app.py'
             artifact: 'todoBackend_artifact'
             publishLocation: 'pipeline'
