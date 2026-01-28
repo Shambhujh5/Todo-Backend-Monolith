@@ -19,7 +19,7 @@ stages:
         displayName: Linting check(ruff)
         steps:
         - task: PowerShell@2
-          continueOnError: yes
+          continueOnError: true
           inputs:
             targetType: 'inline'
             script: 'ruff check'
