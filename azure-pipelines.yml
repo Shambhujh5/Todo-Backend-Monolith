@@ -2,15 +2,20 @@ trigger: none
 pool: default
 
 stages:
-  - stage: SoftwareComponentAnalysis
-    displayName: Software Component Analysis
+  - stage: StaticCodeAnalysis
+    displayName: Static Code Analysis
     jobs:
-      - job: DependencyVulnerabilityScan
-        displayName: Dependency Vulnerability Scan
+      - job: SonarQubeAnalysis
+        displayName: Static Code Analysis(SonarQube)
         steps:
-        - task: WhiteSource@21
+        - task: PowerShell@2
           inputs:
-            cwd: '$(System.DefaultWorkingDirectory)'
-            projectName: 'Todo-Backend-Monolith'
-        
+            targetType: 'inline'
+            script: |
+              pip install pysonar
+              pysonar \
+                --sonar-host-url=http://localhost:9000 \
+                --sonar-token=$(token) \
+                --sonar-project-key=backend-todo
 
+        
