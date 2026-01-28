@@ -7,5 +7,10 @@ stages:
     jobs:
       - job: DependencyVulnerabilityScan
         displayName: Dependency Vulnerability Scan
+        steps:
+        - task: WhiteSource@21
+          inputs:
+            cwd: '$(System.DefaultWorkingDirectory)'
+            projectName: 'Todo-Backend-Monolith'
         
 
