@@ -34,3 +34,13 @@ stages:
             targetPath: '$(System.DefaultWorkingDirectory)/app.py'
             artifact: 'todoBackend_artifact'
             publishLocation: 'pipeline'
+  - stage: DeploytoVm
+    displayName: Deploy to Vm
+    jobs:
+      - deployment: Deploy
+        environment:
+         name: Backend-deploy
+         resourceType: virtualmachine
+         
+    
+      
