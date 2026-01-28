@@ -14,8 +14,8 @@ stages:
             script: |
               pip install pysonar
               pysonar \
-                --sonar-host-url=http://localhost:9000 \
-                --sonar-token=$(token) \
-                --sonar-project-key=backend-todo
+              --sonar-host-url=http://localhost:9000 \
+              --sonar-token=$(token) \
+              --sonar-project-key=backend-todo
 
         
