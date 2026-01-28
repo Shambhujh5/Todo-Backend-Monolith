@@ -7,11 +7,5 @@ stages:
     jobs:
       - job: DependencyVulnerabilityScan
         displayName: Dependency Vulnerability Scan
-        steps:
-        - task: dependency-check-build-task@6
-          inputs:
-            projectName: 'Todo-Backend-Monolith'
-            scanPath: '$(System.DefaultWorkingDirectory)'
-            format: 'HTML'
-            uploadReports: true
+        
 
