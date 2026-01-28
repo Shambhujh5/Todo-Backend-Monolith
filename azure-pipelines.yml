@@ -16,10 +16,10 @@ stages:
     displayName: Code Quality Checks & Linting
     jobs:
       - job: Lintingcheck
-        continueOnError: true
         displayName: Linting check(ruff)
         steps:
         - task: PowerShell@2
+          continueOnError: yes
           inputs:
             targetType: 'inline'
             script: 'ruff check'
