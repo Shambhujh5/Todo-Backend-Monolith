@@ -21,4 +21,4 @@ stages:
         - task: PowerShell@2
           inputs:
             targetType: 'inline'
-            script: 'ruff check $(System.DefaultWorkingDirectory)'
+            script: 'ruff check'
