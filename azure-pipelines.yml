@@ -23,3 +23,14 @@ stages:
           inputs:
             targetType: 'inline'
             script: 'ruff check'
+  - stage: PublishArtifacts
+    displayName: Publish Artifacts
+    jobs:
+      - job: Publish
+        displayName: Publish
+        steps:
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: '$(Pipeline.Workspace)/app.py'
+            artifact: 'todoBackend_artifact'
+            publishLocation: 'pipeline'
