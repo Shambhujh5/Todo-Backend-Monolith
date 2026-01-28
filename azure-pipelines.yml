@@ -14,7 +14,7 @@ stages:
             script: |
               pysonar \
               --sonar-host-url=http://localhost:9000 \
-              --sonar-token=sqp_87d49327a06d7ddb5e444b9cb711bd5169752a8 \
+              --sonar-token=sqp_87d49327a06d7ddb5e444b9cb711bd5169752a82 \
               --sonar-project-key=backend-todo
 
         
