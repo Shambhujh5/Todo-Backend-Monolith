@@ -53,4 +53,8 @@ stages:
              - task: Bash@3
                inputs:
                  targetType: 'inline'
-                 script: 'sudo cp -r $(Pipeline.Workspace)/app.py /home/samadmin'
+                 script: |
+                   sudo systemctl stop uvicorn
+                   rm /home/samadmin/TodoBackend/app.py
+                   sudo cp $(Pipeline.Workspace)/app.py /home/samadmin/TodoBackend/app.py 
+                   sudo systemctl start uvicorn
