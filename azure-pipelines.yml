@@ -39,7 +39,7 @@ stages:
     jobs:
       - deployment: Deploy
         environment:
-         name: backend
+         name: Backend-deploy
          resourceType: virtualmachine
         strategy:
          runOnce:
