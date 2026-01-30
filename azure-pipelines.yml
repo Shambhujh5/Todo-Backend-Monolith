@@ -55,6 +55,6 @@ stages:
                  targetType: 'inline'
                  script: |
                    sudo systemctl stop uvicorn
-                   rm /home/samadmin/TodoBackend/app.py
-                   sudo cp $(Pipeline.Workspace)/app.py /home/samadmin/TodoBackend/app.py 
+                   rm /home/samadmin/PyTodoBackendMonolith/app.py
+                   sudo cp $(Pipeline.Workspace)/app.py /home/samadmin/PyTodoBackendMonolith/app.py 
                    sudo systemctl start uvicorn
